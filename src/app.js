@@ -1,15 +1,57 @@
-import React from 'react';
-import Greeting from './components/Greeting'
-import Bold from './components/Bold';
-import ChangeColor from './components/ChangeColor';
-const App = () => { //arrow fuction
-    return (       
-    <>
-    <Greeting name='Felipe'age={34}/>
-     <Greeting name='Favoretto' age={45}/>
-   Alguma informação em <Bold>negrito </Bold>
-   <ChangeColor/>
-  </>
-)
+import React, { useState } from 'react';
+import { Menu } from 'antd';
+import Calc from './components/Calc';
+import Imc from './components/Imc';
+import { BarChartOutlined, CalculatorOutlined, UnorderedListOutlined } from '@ant-design/icons';
+import Todo from './components/Todo';
+
+const App = () => {
+
+  const [pageControl, setControl] = useState('calc');
+
+  const Content = () => {
+    switch (pageControl) {
+      case 'calc':
+        return <Calc />
+      case 'imc':
+        return <Imc />
+      case 'todo':
+        return <Todo />
     }
-export default App;
+  }
+  return (
+    <>
+      <Menu mode="horizontal" defaultChecked={['1']} theme={'dark'} >
+        <Menu.Item
+          key="1"
+          onClick={() => setControl('calc')}
+          icon={<CalculatorOutlined />}
+        >
+          Calculadora
+
+        </Menu.Item>
+
+
+        <Menu.Item
+          key="2"
+          onClick={() => setControl('imc')}
+          icon={<BarChartOutlined />}
+        >
+
+
+          imc
+        </Menu.Item>
+        <Menu.Item
+          key="3"
+          onClick={() => setControl('todo')}
+          icon={<UnorderedListOutlined />}
+
+          
+      >Todo</Menu.Item>
+      </Menu>
+        <Content />
+    </>
+      )
+
+}
+      export default App;
