@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import AppMenu from './AppMenu';
 const Imc = () => {
     const [num1, setNum1] = useState();
     const [num2, setNum2] = useState();
@@ -10,9 +11,10 @@ const Imc = () => {
     }
     return (
         <>
+        <AppMenu selectedkey='2'/>
             <h2> Calculadora de IMC</h2>
             <form>
-                <div>
+                <div> 
                     <label>
                         massa:
                         <input value={num1}
