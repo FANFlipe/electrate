@@ -3,6 +3,7 @@ import Calc from './components/Calc';
 import Imc from './components/Imc';
 import Todo from './components/Todo';
 import { Route, Switch ,HashRouter} from 'react-router-dom';
+import GetPizzas from './components/GetPizzas';
   
 
 
@@ -20,7 +21,9 @@ import { Route, Switch ,HashRouter} from 'react-router-dom';
         <Route path= '/todo'>
           <Todo/>
           </Route>
-          
+          <Route path= '/getpizzas'>
+            <GetPizzas />
+            </Route>     
           </HashRouter>
     </>
       )
